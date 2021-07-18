@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "TCC Final 1.0"
