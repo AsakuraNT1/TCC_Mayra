@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/miDelete"
+        android:icon="@drawable/ic_baseline_delete_24"
+        app:showAsAction="ifRoom"
+        android:title="Remover"/>
+
+    <item
+        android:id="@+id/miTimer"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        android:title="Timer"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/miFade"
+        android:icon="@drawable/ic_baseline_arrow_downward_24"
+        android:title="Fade"
+        app:showAsAction="ifRoom" />
+
+
+
+
+</menu>

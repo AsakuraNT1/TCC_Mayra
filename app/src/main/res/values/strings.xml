@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Controle Dispositivo</string>
+    <string name="action_settings">Settings</string>
+    <string name="Falha_conexao">Falha de conexão</string>
+    <string name="ON">Ligado</string>
+    <string name="OFF">Desligado</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="Desligado">Desligado!</string>
+    <string name="timercancel">Timer Cancelado!</string>
+    <string name="timeractive">Timer Ativado!</string>
+    <string name="notoffchannel">Dispositivo Desligado</string>
+    <string name="notoffdesc">Apresenta ao desligar dispositivo através de Timer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

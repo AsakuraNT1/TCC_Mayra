@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gray_back"
+    android:clickable="true">
+
+
+    <TextView
+        android:id="@+id/tvNome_Holder"
+        android:layout_width="271dp"
+        android:layout_height="71dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Nome"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/ivNome_Holder"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvIP_holder"
+        android:layout_width="258dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|left"
+        android:text="IP"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/ivIP_Holder"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome_Holder" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="413dp"
+        android:layout_height="6dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivNome_Holder"
+        android:layout_width="91dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@mipmap/ic_plug_round" />
+
+    <ImageView
+        android:id="@+id/ivIP_Holder"
+        android:layout_width="93dp"
+        android:layout_height="67dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivNome_Holder"
+        tools:srcCompat="@mipmap/ic_http_round" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

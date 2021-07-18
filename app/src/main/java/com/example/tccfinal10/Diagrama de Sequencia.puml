@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Usuario as Usuario
+participant Aplicativo as Aplicativo
+participant ESP8266 as ESP8266
+participant MSP430 as MSP430
+control Circuito as Circuito
+
+autonumber
+
+Usuario -> Aplicativo: Cadastro dispositivo
+Usuario <- Aplicativo: Cadastro OK
+Usuario -> Aplicativo: Requisicao de alteracao de velocidade
+Aplicativo -> ESP8266: Conexao HTTP
+Aplicativo <- ESP8266: Resposta conexao
+Usuario <- Aplicativo: Resposta de conexaopara usuario
+ESP8266 -> MSP430: Informacao via PWM
+MSP430 -> Circuito: Disparo TRIAC
+
+
+@enduml

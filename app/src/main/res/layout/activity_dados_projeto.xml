@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluebackground"
+    tools:context=".DadosProjeto">
+
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="401dp"
+        android:layout_height="243dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivProjeto"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start|center_horizontal"
+                android:maxWidth="12dp"
+                android:src="@drawable/ic_projeto" />
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:hint="Forneça o nome do Projeto"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivDeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_deadline" />
+
+            <TextView
+                android:id="@+id/etIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:focusable="false"
+                android:hint="Forneça o Deadline"
+                android:onClick="showDatePickerDialog"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_local" />
+
+            <EditText
+                android:id="@+id/etLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:hint="Forneça o local"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_contato" />
+
+            <EditText
+                android:id="@+id/etContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ellipsize="none"
+                android:hint="Forneça o contato"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104"
+                android:textColorLink="#95CDF104" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivPhoneContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_phone" />
+
+            <EditText
+                android:id="@+id/etPhoneContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ellipsize="none"
+                android:ems="10"
+                android:hint="Telefone de contato"
+                android:inputType="phone"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="122dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
+
+        <RadioButton
+            android:id="@+id/rbAgendado"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FAFFFFFF"
+            android:onClick="onRadioButtonClicked"
+            android:text="Agendado"
+            android:textColor="#E9F0E9" />
+
+
+        <RadioButton
+            android:id="@+id/rbCancelado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FCFFFFFF"
+            android:onClick="onRadioButtonClicked"
+            android:text="Cancelado"
+            android:textColor="#E9F0E9" />
+
+        <RadioButton
+            android:id="@+id/rbConcluido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:onClick="onRadioButtonClicked"
+            android:text="Concluido"
+            android:textColor="#E9F0E9" />
+
+        <RadioButton
+            android:id="@+id/rbExecucao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:onClick="onRadioButtonClicked"
+            android:text="Execução"
+            android:textColor="#E9F0E9" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnProjectOK"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:onClick="OnClickEnter"
+        android:text="OK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

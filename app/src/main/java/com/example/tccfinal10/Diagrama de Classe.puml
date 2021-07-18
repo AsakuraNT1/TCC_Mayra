@@ -1,0 +1,145 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class MainActivity {
+  - ArrayList<Dispositivo> alDispositivos
+  - ArrayList<PendingIntent> listAlarmint
+  - DispositivoAdapter adapter
+  - boolean alphaClicked
+
+- void createNotificationChannel()
+# void onCreate(Bundle savedInstanceState)
++ void onResume()
++ boolean onCreateOptionsMenu(Menu menu)
++ boolean onOptionsItemSelected(MenuItem item)
++ void OnDispositivoClick(int position)
+
+}
+
+class AdicionaDispositivo {
+   + ArrayList<Dispositivo> alDispositivos
+   + Dispositivo dispositivo
+   + int dispositivoPos
+   + EditText etNome
+   + EditText etIP
+   + Button btnEnter
+   + int iDispoId
+
+ # void onCreate(Bundle savedInstanceState)
+ + void OnClickEnter(View view)
+
+}
+
+class AlarmReceiver {
++ void onReceive(Context context, Intent intent)
+}
+
+class BackgroundOff {
+
+- String disNome
+- NotificationCompat.Builder builder
+- Dispositivo dispositivo
+
+# void onCreate(Bundle savedInstanceState)
+}
+class ControlaDispositivo {
+
+- TextView txtStatus
+    - TextView txtData
+    - TextView txtSeekBar
+    - RequestQueue queue
+    - StringRequest stringONRequest
+    - StringRequest stringOFFRequest
+    - StringRequest speedRequest
+    - Switch swLigar
+    - SeekBar skBarraVelocidade
+    - String disURL
+    - ArrayList<Dispositivo> alDispositivos
+    - Dispositivo dispositivo
+    - int dispositivoPos
+    - int tminutos
+    - int thora
+    - TextView txtTimer
+    - Button btnTimerCancel
+    - boolean dStatus
+    + AlarmManager alarmMgr
+    + PendingIntent alarmIntent
+
+# void onCreate(Bundle savedInstanceState)
++ void onResume()
++ boolean onCreateOptionsMenu(Menu menu)
++ boolean onOptionsItemSelected(MenuItem item)
++ void CancelClick(View v)
+
+
+}
+class Dispositivo {
+
+    - String dNome
+    - String dIP
+    - boolean dStatus
+    - int speed
+    - AlarmManager alarmMgr
+    - PendingIntent alarmIntent
+
++ Dispositivo(String dNome, String dIP)
++ Dispositivo()
++ String getdNome()
++ void setdNome(String dNome)
++ String getdIP()
++ void setdIP(String dIP)
++ boolean getdStatus()
++ void setdStatus(boolean dStatus)
++ AlarmManager getdAlarm()
++ void setdAlarm(AlarmManager alarmMgr)
++ int getSpeed()
++ void setSpeed(int speed)
++ PendingIntent getAlarmIntent()
++ void setAlarmIntent(PendingIntent alarmIntent)
+
+}
+class DispositivoAdapter {
+
+- final List<Dispositivo> DispositivoList;
+- final OnDispositivoListener onDispositivoListener;
+
+ + DispositivoAdapter(List<Dispositivo> Dispositivos, OnDispositivoListener onDispositivoListener)
+ + DispositivoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+ + void onBindViewHolder(DispositivoAdapter.ViewHolder viewHolder, int position)
+ + int getItemCount()
+}
+class ListaDispositivo {
+
+    - ArrayList<Dispositivo> alDispositivos
+    - static ListaDispositivos sListaDispositivos
+    - final Context appContext
+    - static final String fileName
+    - ListaDispositivos(Context appContext)
+    + static ListaDispositivos get (Context c)
+    + ArrayList<Dispositivo> getAlDispositivos()
+    + static void salvar()
+    - void saveToFile()
+    - void readFromFile()
+
+}
+
+
+
+ MainActivity <|--|> DispositivoAdapter
+ ControlaDispositivo --|>  AlarmReceiver
+ MainActivity --|>  AdicionaDispositivo
+ MainActivity --|>  ControlaDispositivo
+ AlarmReceiver --|>  BackgroundOff
+ AdicionaDispositivo --|> ListaDispositivo
+ ListaDispositivo --* Dispositivo
+ ListaDispositivo --|> DispositivoAdapter
+ BackgroundOff --|> Dispositivo
+ ControlaDispositivo --|>  Dispositivo
+
+
+
+
+
+@enduml

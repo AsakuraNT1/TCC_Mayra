@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluebackground"
+    tools:context=".MostraProjeto">
+
+
+
+    <TableLayout
+        android:id="@+id/tableLayout2_show"
+        android:layout_width="401dp"
+        android:layout_height="243dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical">
+
+            <ImageView
+                android:id="@+id/ivProjeto_show"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start|center_horizontal"
+                android:maxWidth="12dp"
+                android:src="@drawable/ic_projeto" />
+
+            <TextView
+                android:id="@+id/etNome_show"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:editable="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical">
+
+            <ImageView
+                android:id="@+id/ivDeadline_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_deadline" />
+
+            <TextView
+                android:id="@+id/tvDeadLine_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:editable="false"
+                android:focusable="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical">
+
+            <ImageView
+                android:id="@+id/ivLocation_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_local" />
+
+            <TextView
+                android:id="@+id/etLocal_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="start|center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical">
+
+            <ImageView
+                android:id="@+id/ivContato_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_contato" />
+
+            <TextView
+                android:id="@+id/etContato_show"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:editable="false"
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104"
+                android:textColorLink="#95CDF104" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivPhoneContato_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_phone" />
+
+            <TextView
+                android:id="@+id/etPhoneContato_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:editable="false"
+                android:ellipsize="none"
+                android:ems="10"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#E9F0E9"
+                android:textColorHint="#95CDF104" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/ivStaus_show"
+        android:layout_width="181dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2_show"
+        app:srcCompat="@drawable/ic_agendado" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
