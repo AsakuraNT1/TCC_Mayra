@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gray_back"
+    android:background="@drawable/green_energy"
     android:visibility="visible"
     tools:context=".ControlaDispositivo">
 
@@ -16,7 +16,7 @@
         android:gravity="center"
         android:text="IP do Ventilador"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:text="Controle de Ventilador"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -44,8 +44,8 @@
         android:layout_height="66dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="60dp"
-        android:textColor="@color/white"
-        android:textColorHint="#F3ECEC"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvIPControl" />
 
@@ -71,7 +71,7 @@
         android:gravity="center"
         android:text="Desligado"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/swLigar"
         app:layout_constraintTop_toBottomOf="@+id/tvIPControl" />
 
