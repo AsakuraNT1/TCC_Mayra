@@ -54,8 +54,8 @@ import java.util.ArrayList;
 
 public class MonitoraDispositivo extends AppCompatActivity {
 
-    private TextView txtStatus;
-    private TextView txtData;
+    private TextView txvMeanVoltage;
+    private TextView txvMeanVoltage;
     private TextView txtSeekBar;
     private RequestQueue queue;
     private StringRequest stringONRequest;

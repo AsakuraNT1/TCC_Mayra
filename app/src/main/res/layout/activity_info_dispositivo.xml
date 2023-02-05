@@ -43,9 +43,9 @@
         android:text="@string/meanCost"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintEnd_toEndOf="@+id/lblActualPowerControl"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
+        app:layout_constraintStart_toStartOf="@+id/lblActualPowerControl"
         app:layout_constraintTop_toBottomOf="@+id/lblMinPower" />
 
     <TextView
@@ -57,9 +57,9 @@
         android:text="@string/minPower"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintEnd_toEndOf="@+id/lblActualPowerControl"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
+        app:layout_constraintStart_toStartOf="@+id/lblActualPowerControl"
         app:layout_constraintTop_toBottomOf="@+id/lblMaxPower" />
 
     <TextView
@@ -95,7 +95,7 @@
         android:gravity="end|center_vertical"
         android:text="@string/ZeroCurrent"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/lblMeanCurrent"
+        app:layout_constraintStart_toEndOf="@+id/lblMeanPowerControl"
         app:layout_constraintTop_toBottomOf="@+id/tvMeanVoltage" />
 
     <TextView
@@ -106,8 +106,8 @@
         android:gravity="end|center_vertical"
         android:text="@string/ZeroVoltage"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/lblMeanVoltage"
-        app:layout_constraintTop_toTopOf="@+id/lblMeanVoltage" />
+        app:layout_constraintStart_toEndOf="@+id/lblActualPowerControl"
+        app:layout_constraintTop_toTopOf="@+id/lblActualPowerControl" />
 
     <TextView
         android:id="@+id/lblMaxPower"
@@ -118,10 +118,10 @@
         android:text="@string/Maxconsume"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintEnd_toEndOf="@+id/lblActualPowerControl"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
-        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+        app:layout_constraintStart_toStartOf="@+id/lblActualPowerControl"
+        app:layout_constraintTop_toBottomOf="@+id/lblActualPowerControl" />
 
     <TextView
         android:id="@+id/lblMeanPower"
@@ -132,13 +132,13 @@
         android:text="@string/meanPower"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintEnd_toEndOf="@+id/lblActualPowerControl"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
-        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+        app:layout_constraintStart_toStartOf="@+id/lblActualPowerControl"
+        app:layout_constraintTop_toBottomOf="@+id/lblActualPowerControl" />
 
     <TextView
-        android:id="@+id/lblMeanVoltage"
+        android:id="@+id/lblActualPowerControl"
         android:layout_width="196dp"
         android:layout_height="47dp"
         android:layout_marginTop="44dp"
@@ -165,7 +165,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lblMeanCurrent"
+        android:id="@+id/lblMeanPowerControl"
         android:layout_width="197dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -173,9 +173,9 @@
         android:text="@string/current"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintEnd_toEndOf="@+id/lblActualPowerControl"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
-        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+        app:layout_constraintStart_toStartOf="@+id/lblActualPowerControl"
+        app:layout_constraintTop_toBottomOf="@+id/lblActualPowerControl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
