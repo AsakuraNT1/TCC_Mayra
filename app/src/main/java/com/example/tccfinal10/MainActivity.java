@@ -15,6 +15,7 @@ Activity Principal
 
 package com.example.tccfinal10;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -83,17 +84,14 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        fab.setOnClickListener(view -> {
 
-                Intent i = new Intent(getApplicationContext(), AdicionaDispositivo.class);
-                i.putExtra("dispositivoId", 0);
-                i.putExtra("from", 1); // 1 identifica que é inclusão de novo dispositivo
-                startActivity(i);
+            Intent i = new Intent(getApplicationContext(), AdicionaDispositivo.class);
+            i.putExtra("dispositivoId", 0);
+            i.putExtra("from", 1); // 1 identifica que é inclusão de novo dispositivo
+            startActivity(i);
 
 
-            }
         });
 
         RecyclerView rvDispositivos = findViewById(R.id.rvDispositivos);
@@ -110,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void onResume() {
         super.onResume();
         adapter.notifyDataSetChanged();
@@ -163,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
     // Ao clicar abre atividade para controle de dispositivo.
     @Override
     public void OnDispositivoClick(int position) {
-        Intent IntCD = new Intent(this, ControlaDispositivo.class);
+        Intent IntCD = new Intent(this, MonitoraDispositivo.class);
         IntCD.putExtra("dispositivoId",position);
         startActivity(IntCD);
     }

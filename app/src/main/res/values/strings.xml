@@ -12,6 +12,7 @@
     <string name="timercancel">Timer Cancelado!</string>
     <string name="timeractive">Timer Ativado!</string>
     <string name="device">Dispositivo</string>
+    <string name="notoffchannel">Dispositivo Desligado</string>
     <string name="notoffdesc">Apresenta ao desligar dispositivo através de Timer</string>
     <string name="Aconsume">Consumo Atual:</string>
     <string name="Medconsume">Consumo Médio:</string>
@@ -28,6 +29,7 @@
     <string name="minPower">Consumo Mínimo:</string>
     <string name="meanCost">Gasto Médio:</string>
     <string name="dataDefault">Resposta</string>
+    <string name="plusButtonDescription">Botão para adicionar dispositivos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
