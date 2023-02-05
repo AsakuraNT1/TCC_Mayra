@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gray_back"
+    android:background="@drawable/green_energy"
     tools:context=".AdicionaDispositivo">
 
 
@@ -25,12 +25,12 @@
 
             <ImageView
                 android:id="@+id/ivProjeto"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="71dp"
+                android:layout_height="83dp"
                 android:layout_column="1"
                 android:layout_gravity="start|center_horizontal"
                 android:maxWidth="12dp"
-                android:src="@mipmap/ic_plug_round" />
+                android:src="@drawable/ic_plug_foreground" />
 
             <EditText
                 android:id="@+id/etNome"
@@ -41,7 +41,7 @@
                 android:hint="Forneça o nome do Dispositivo"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white"
-                android:textColorHint="#95CDF104" />
+                android:textColorHint="#9553F6C8" />
         </TableRow>
 
         <TableRow
@@ -50,11 +50,11 @@
 
             <ImageView
                 android:id="@+id/ivDeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="97dp"
+                android:layout_height="60dp"
                 android:layout_column="1"
                 android:layout_gravity="start"
-                android:src="@mipmap/ic_http_round" />
+                android:src="@drawable/ic_http_foreground" />
 
             <EditText
                 android:id="@+id/etIP"
@@ -65,7 +65,7 @@
                 android:hint="Forneça o IP do Dispositivo"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white"
-                android:textColorHint="#95CDF104" />
+                android:textColorHint="#9553F6C8" />
 
         </TableRow>
 
