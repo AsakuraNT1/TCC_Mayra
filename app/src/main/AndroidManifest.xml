@@ -20,16 +20,22 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.TCCFinal10.NoActionBar">
+            android:theme="@style/Theme.TCCFinal10.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MonitoraDispositivo"
+            android:theme="@style/Theme.TCCFinal10"
+            android:exported="true">
+        </activity>
 
-        <receiver android:name=".ControlaDispositivo">
+
+        <receiver android:name=".MonitoraDispositivo">
             <intent-filter>
                 <action android:name="EXECUTAR_ALARME" />
 

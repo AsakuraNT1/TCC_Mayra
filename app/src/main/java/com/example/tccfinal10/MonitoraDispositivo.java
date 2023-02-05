@@ -92,11 +92,14 @@ public class MonitoraDispositivo extends AppCompatActivity {
         if (extras == null) {
             return;
         }
+
+        /*
         ActionBar ab = getSupportActionBar();
 
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);  // seta retorno na action bar
         ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
+        */
 
         dispositivoPos = extras.getInt("dispositivoId");
 
@@ -105,7 +108,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
         dispositivo = alDispositivos.get(dispositivoPos)
         ;
         // atualiza nome do dispositivo na action bar
-        ab.setTitle(dispositivo.getdNome());
+        // ab.setTitle(dispositivo.getdNome());
 
         // atualiza dados do dispositivo nas views
         txtNome.setText(dispositivo.getdNome());
