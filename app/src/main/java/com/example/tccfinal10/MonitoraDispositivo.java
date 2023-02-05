@@ -84,12 +84,8 @@ public class MonitoraDispositivo extends AppCompatActivity {
         txvMeanPower = findViewById(R.id.tvValueMeanConsumeCTL);
         txvMaxPower = findViewById(R.id.tvValueMaxPowerCTL);
         TextView txtNome = findViewById(R.id.tvTitleCTL);
-        TextView txtIP = findViewById(R.id.tvIPControl);
-        btnTimerCancel =findViewById(R.id.btnTimeCancel);
-        swLigar = findViewById(R.id.swLigar);
-        txtTimer = findViewById(R.id.txtTimer);
-
-
+        TextView txtData = findViewById(R.id.tvResponse);
+        swLigar = findViewById(R.id.swLigarCTL);
 
 
         Bundle extras = getIntent().getExtras();
@@ -113,7 +109,6 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
         // atualiza dados do dispositivo nas views
         txtNome.setText(dispositivo.getdNome());
-        txtIP.setText(dispositivo.getdIP());
         dStatus = dispositivo.getdStatus();
         if(dStatus){
             swLigar.setChecked(true);
@@ -124,77 +119,11 @@ public class MonitoraDispositivo extends AppCompatActivity {
         alarmMgr = dispositivo.getdAlarm();
         alarmIntent = dispositivo.getAlarmIntent();
 
-        skBarraVelocidade.setProgress(dispositivo.getSpeed());
-
         // Compoe a URL com o IP do dispositivo.
         disURL ="http://" + dispositivo.getdIP();
 
-
         // Instancia fila de envio
         queue = Volley.newRequestQueue(this);
-
-        skBarraVelocidade.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            float percentValue = 0;
-            int realValue;
-
-            // Ao alterar a barra de controle de velocidade atualiza velocidade do dispositivo
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-
-
-                percentValue = (float)i/9000*100;
-
-                int texto = (int)percentValue;
-
-                txtSeekBar.setText(texto + "%");
-
-                    dispositivo.setSpeed(i);
-
-                    realValue = i;
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-
-            // Ao soltar a barra de velocidade, envia a informação da barra via HTTP
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-                if(percentValue == 0) {
-
-                  swLigar.setChecked(false);
-                    txtStatus.setText(R.string.OFF);
-                    queue.add(stringOFFRequest);
-
-                }
-                else {
-
-                    if(realValue < 150)
-                        realValue=150;
-
-                    speedRequest = new StringRequest(Request.Method.GET, disURL + "/speed=" + realValue,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    // Display the first 500 characters of the response string.
-                                    txtData.setText(response);
-                                }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            txtData.setText(R.string.Falha_conexao);
-                        }
-                    });
-                    queue.add(speedRequest);
-                }
-                ListaDispositivos.salvar();
-            }
-        });
 
 
         stringONRequest = new StringRequest(Request.Method.GET, disURL + "/status=ON",

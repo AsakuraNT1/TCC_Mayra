@@ -145,4 +145,15 @@
         app:layout_constraintStart_toStartOf="@+id/lblActualConsumeCTL"
         app:layout_constraintTop_toBottomOf="@+id/lblActualConsumeCTL" />
 
+    <TextView
+        android:id="@+id/tvResponse"
+        android:layout_width="349dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/dataDefault"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/txtStatusCTL"
+        app:layout_constraintTop_toBottomOf="@+id/txtStatusCTL" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
