@@ -89,11 +89,11 @@
         android:text="@string/Aconsume"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintStart_toStartOf="@+id/tvTitleCTL"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleCTL" />
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvTitleCTL"
         android:layout_width="378dp"
         android:layout_height="78dp"
         android:layout_marginTop="24dp"

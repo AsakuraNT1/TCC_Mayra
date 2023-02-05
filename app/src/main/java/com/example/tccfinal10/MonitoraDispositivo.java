@@ -54,15 +54,14 @@ import java.util.ArrayList;
 
 public class MonitoraDispositivo extends AppCompatActivity {
 
-    private TextView txvMeanVoltage;
-    private TextView txvMeanVoltage;
-    private TextView txtSeekBar;
+    private TextView txvActualPower;
+    private TextView txvMeanPower;
+    private TextView txvMaxPower;
+    private TextView txtStatus;
     private RequestQueue queue;
     private StringRequest stringONRequest;
     private StringRequest stringOFFRequest;
-    private StringRequest speedRequest;
     private Switch swLigar;
-    private SeekBar skBarraVelocidade;
     private String disURL;
     private ArrayList<Dispositivo> alDispositivos;
     private Dispositivo dispositivo;
@@ -76,23 +75,20 @@ public class MonitoraDispositivo extends AppCompatActivity {
     public PendingIntent alarmIntent;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_controla_dispositivo);
-        txtStatus = findViewById(R.id.txtStatus);
-        txtData = findViewById(R.id.txtDownload);
-        txtSeekBar = findViewById(R.id.txtSeekBar);
-        TextView txtNome = findViewById(R.id.tvTitle);
+        setContentView(R.layout.activity_monitora_dispositivo);
+        txtStatus = findViewById(R.id.txtStatusCTL);
+        txvActualPower = findViewById(R.id.tvValueActualConsumeCTL);
+        txvMeanPower = findViewById(R.id.tvValueMeanConsumeCTL);
+        txvMaxPower = findViewById(R.id.tvValueMaxPowerCTL);
+        TextView txtNome = findViewById(R.id.tvTitleCTL);
         TextView txtIP = findViewById(R.id.tvIPControl);
         btnTimerCancel =findViewById(R.id.btnTimeCancel);
         swLigar = findViewById(R.id.swLigar);
         txtTimer = findViewById(R.id.txtTimer);
-        skBarraVelocidade = findViewById(R.id.skBarraVelocidade);
-        skBarraVelocidade.setMax(9000);
+
 
 
 
