@@ -11,8 +11,22 @@
     <string name="Desligado">Desligado!</string>
     <string name="timercancel">Timer Cancelado!</string>
     <string name="timeractive">Timer Ativado!</string>
-    <string name="notoffchannel">Dispositivo Desligado</string>
+    <string name="device">Dispositivo</string>
     <string name="notoffdesc">Apresenta ao desligar dispositivo através de Timer</string>
+    <string name="Aconsume">Consumo Atual:</string>
+    <string name="Medconsume">Consumo Médio:</string>
+    <string name="Maxconsume">Consumo Máximo:</string>
+    <string name="Monconsume">Consumo em Reais:</string>
+    <string name="ZeroPower">0 W</string>
+    <string name="ZeroVoltage">0 V</string>
+    <string name="ZeroCurrent">0 A</string>
+    <string name="ZeroMoney">0 R$/min</string>
+    <string name="allInfo">Informações Gerais</string>
+    <string name="voltage">Tensão:</string>
+    <string name="current">Corrente:</string>
+    <string name="meanPower">Consumo Médio:</string>
+    <string name="minPower">Consumo Mínimo:</string>
+    <string name="meanCost">Gasto Médio:</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

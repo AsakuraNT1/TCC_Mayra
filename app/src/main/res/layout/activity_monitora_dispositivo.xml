@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    android:backgroundTint="#47C34C"
+    android:visibility="visible"
+    tools:context=".MonitoraDispositivo">
+
+
+    <TextView
+        android:id="@+id/tvMeanPower3"
+        android:layout_width="136dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        android:gravity="end|center_vertical"
+        android:text="@string/ZeroMoney"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lblMaxPower"
+        app:layout_constraintTop_toBottomOf="@+id/tvMeanCurrent" />
+
+    <TextView
+        android:id="@+id/tvMeanPower2"
+        android:layout_width="138dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:gravity="end|center_vertical"
+        android:text="@string/ZeroPower"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lblMeanPower"
+        app:layout_constraintTop_toBottomOf="@+id/tvMeanCurrent" />
+
+    <TextView
+        android:id="@+id/tvMeanCurrent"
+        android:layout_width="137dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:gravity="end|center_vertical"
+        android:text="@string/ZeroPower"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lblMeanCurrent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMeanVoltage" />
+
+    <TextView
+        android:id="@+id/tvMeanVoltage"
+        android:layout_width="136dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:gravity="end|center_vertical"
+        android:text="@string/ZeroPower"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintTop_toTopOf="@+id/lblMeanVoltage" />
+
+    <TextView
+        android:id="@+id/lblMaxPower"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="120dp"
+        android:gravity="center"
+        android:text="@string/Monconsume"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
+        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+
+    <TextView
+        android:id="@+id/lblMeanPower"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="@string/Maxconsume"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
+        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+
+    <TextView
+        android:id="@+id/lblMeanVoltage"
+        android:layout_width="196dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="@string/Aconsume"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="378dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/device"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/swLigar"
+        android:layout_width="136dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="#3145B1"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/txtStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvMeanPower3"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="196dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/OFF"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/lblMaxPower"
+        app:layout_constraintStart_toStartOf="@+id/lblMaxPower"
+        app:layout_constraintTop_toBottomOf="@+id/lblMaxPower" />
+
+    <TextView
+        android:id="@+id/lblMeanCurrent"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/Medconsume"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/lblMeanVoltage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/lblMeanVoltage"
+        app:layout_constraintTop_toBottomOf="@+id/lblMeanVoltage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

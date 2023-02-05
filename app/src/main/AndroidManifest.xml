@@ -16,9 +16,6 @@
         android:theme="@style/Theme.TCCFinal10">
         <activity android:name=".BackgroundOFF"></activity>
         <activity
-            android:name=".ControlaDispositivo"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity
             android:name=".AdicionaDispositivo"
             android:parentActivityName=".MainActivity" />
         <activity

@@ -15,10 +15,6 @@ Activity utilizada para enviar comandos via HTTP para o dispositivo.
 
 package com.example.tccfinal10;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -40,16 +36,23 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 
 
-public class ControlaDispositivo extends AppCompatActivity {
+public class MonitoraDispositivo extends AppCompatActivity {
 
     private TextView txtStatus;
     private TextView txtData;
@@ -83,7 +86,7 @@ public class ControlaDispositivo extends AppCompatActivity {
         txtStatus = findViewById(R.id.txtStatus);
         txtData = findViewById(R.id.txtDownload);
         txtSeekBar = findViewById(R.id.txtSeekBar);
-        TextView txtNome = findViewById(R.id.tvNomeControl);
+        TextView txtNome = findViewById(R.id.tvTitle);
         TextView txtIP = findViewById(R.id.tvIPControl);
         btnTimerCancel =findViewById(R.id.btnTimeCancel);
         swLigar = findViewById(R.id.swLigar);
@@ -310,7 +313,7 @@ public class ControlaDispositivo extends AppCompatActivity {
                 int minutes = 0;
 
                 // Picker de tempo do android
-                TimePickerDialog picker = new TimePickerDialog(ControlaDispositivo.this, 2,
+                TimePickerDialog picker = new TimePickerDialog(MonitoraDispositivo.this, 2,
                         (tp, sHour, sMinute) -> {
                             tminutos = sMinute;
                             thoras = sHour;
