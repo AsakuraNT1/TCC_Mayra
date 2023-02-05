@@ -127,51 +127,31 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
 
         stringONRequest = new StringRequest(Request.Method.GET, disURL + "/status=ON",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        txtData.setText(response);
-                        txtStatus.setText(R.string.ON);
-                        dispositivo.setdStatus(true);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                txtData.setText(R.string.Falha_conexao);
-            }
-        });
+                response -> {
+                    txtData.setText(response);
+                    txtStatus.setText(R.string.ON);
+                    dispositivo.setdStatus(true);
+                }, error -> txtData.setText(R.string.Falha_conexao));
 
         stringOFFRequest = new StringRequest(Request.Method.GET, disURL + "/status=OFF",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        txtData.setText(response);
-                        txtStatus.setText(R.string.OFF);
-                        dispositivo.setdStatus(false);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                txtData.setText(R.string.Falha_conexao);
-            }
-        });
-
-
-
-        swLigar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    txtStatus.setText(R.string.ON);
-                    txtTimer.setText("");
-                    queue.add(stringONRequest);
-
-
-                } else {
+                response -> {
+                    txtData.setText(response);
                     txtStatus.setText(R.string.OFF);
-                    queue.add(stringOFFRequest);
-                }
-                ListaDispositivos.salvar();
+                    dispositivo.setdStatus(false);
+                }, error -> txtData.setText(R.string.Falha_conexao));
+
+
+        swLigar.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                txtStatus.setText(R.string.ON);
+                txtTimer.setText("");
+                queue.add(stringONRequest);
+
+            } else {
+                txtStatus.setText(R.string.OFF);
+                queue.add(stringOFFRequest);
             }
+            ListaDispositivos.salvar();
         });
 
 
@@ -179,7 +159,6 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
-        skBarraVelocidade.setProgress(dispositivo.getSpeed());
         dStatus = dispositivo.getdStatus();
         if(dStatus){
             swLigar.setChecked(true);
@@ -211,20 +190,16 @@ public class MonitoraDispositivo extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("Deseja remover o dispositivo " + dispositivo.getdNome() +"?").setTitle("Aviso");
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                builder.setPositiveButton("OK", (dialog, id) -> {
 
-                        alDispositivos.remove(dispositivoPos);
-                        finish();
-                        ListaDispositivos.salvar();
+                    alDispositivos.remove(dispositivoPos);
+                    finish();
+                    ListaDispositivos.salvar();
 
-                    }
                 });
-                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                builder.setNegativeButton("Cancelar", (dialog, id) -> {
+                    // User cancelled the dialog
 
-                    }
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
@@ -259,7 +234,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
                             dispositivo.setAlarmIntent(alarmIntent);
 
                             alarmMgr.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                    SystemClock.elapsedRealtime() + 3600000 * thoras + 60000 * tminutos, dispositivo.getAlarmIntent());
+                                    SystemClock.elapsedRealtime() + 3600000L * thoras + 60000L * tminutos, dispositivo.getAlarmIntent());
 
                             String message = "Desligará em " + thoras + " horas e " + tminutos + " minutos.";
 
@@ -279,58 +254,6 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
                 return true;
 
-            case R.id.miFade:
-
-
-                AlertDialog.Builder builder_fd = new AlertDialog.Builder(this);
-                builder_fd.setMessage("O ventilador diminuirá a velocidade em 5% a cada minuto. Deseja continuar?");
-
-                builder_fd.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        if (dispositivo.getdAlarm() != null) {
-                            dispositivo.getdAlarm().cancel(dispositivo.getAlarmIntent());
-                        }
-
-                        alarmMgr = (AlarmManager)getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-                        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
-                        intent.setAction("fade");
-                        intent.putExtra("NomeDisp", dispositivo.getdNome());
-                        intent.putExtra("IPdisp", dispositivo.getdIP());
-                        intent.putExtra("IDdisp",dispositivoPos);
-                        intent.putExtra("Oper",2);
-
-                        alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), dispositivoPos, intent, 0);
-
-                        dispositivo.setAlarmIntent(alarmIntent);
-                        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                SystemClock.elapsedRealtime() + 60000,
-                                60000, dispositivo.getAlarmIntent());
-
-                        String message = "Desligamento Suave Ativado.";
-
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-
-                        dispositivo.setdAlarm(alarmMgr);
-
-                        btnTimerCancel.setClickable(true);
-                        btnTimerCancel.setVisibility(View.VISIBLE);
-                        txtTimer.setText(R.string.timeractive);
-
-
-                    }
-                });
-                builder_fd.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-
-                    }
-                });
-                AlertDialog dialog_fd = builder_fd.create();
-                dialog_fd.show();
-
-
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
