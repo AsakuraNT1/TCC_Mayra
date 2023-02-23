@@ -27,6 +27,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,10 +43,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -129,6 +132,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
 
+
         stringONRequest = new StringRequest(Request.Method.GET, disURL + "/status=ON",
                 response -> {
                     txtData.setText(response);
@@ -147,7 +151,6 @@ public class MonitoraDispositivo extends AppCompatActivity {
         swLigar.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 txtStatus.setText(R.string.ON);
-                txtTimer.setText("");
                 queue.add(stringONRequest);
 
             } else {
@@ -278,9 +281,6 @@ public void CancelClick(View v){
 
 
 }
-
-
-
 
 
 

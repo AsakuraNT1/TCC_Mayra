@@ -32,7 +32,7 @@ public class ListaDispositivos {
     private final Context appContext;
 
     // Nome do arquivo a ser gravado localmente
-    private static final String fileName = "ListaDispositivos.ser";
+    private static final String fileName = "LocalDatabase.ser";
 
     private ListaDispositivos(Context appContext) {
 
