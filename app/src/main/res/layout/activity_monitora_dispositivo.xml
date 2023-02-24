@@ -13,7 +13,7 @@
         android:id="@+id/tvValueCostCTL"
         android:layout_width="136dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:gravity="end|center_vertical"
         android:text="@string/ZeroMoney"
         android:textColor="@color/black"
@@ -22,9 +22,10 @@
 
     <TextView
         android:id="@+id/tvValueMaxPowerCTL"
-        android:layout_width="138dp"
-        android:layout_height="45dp"
+        android:layout_width="161dp"
+        android:layout_height="39dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
         android:gravity="end|center_vertical"
         android:text="@string/ZeroPower"
         android:textColor="@color/black"
@@ -33,8 +34,8 @@
 
     <TextView
         android:id="@+id/tvValueMeanConsumeCTL"
-        android:layout_width="137dp"
-        android:layout_height="41dp"
+        android:layout_width="166dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:gravity="end|center_vertical"
@@ -45,7 +46,7 @@
 
     <TextView
         android:id="@+id/tvValueActualConsumeCTL"
-        android:layout_width="136dp"
+        android:layout_width="169dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:gravity="end|center_vertical"
@@ -56,10 +57,10 @@
 
     <TextView
         android:id="@+id/lblCostCTL"
-        android:layout_width="197dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="180dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:gravity="center"
         android:text="@string/Monconsume"
         android:textAlignment="center"
@@ -69,9 +70,9 @@
 
     <TextView
         android:id="@+id/lblMaxPowerCTL"
-        android:layout_width="197dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="181dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/Maxconsume"
         android:textAlignment="center"
@@ -81,7 +82,7 @@
 
     <TextView
         android:id="@+id/lblActualConsumeCTL"
-        android:layout_width="196dp"
+        android:layout_width="169dp"
         android:layout_height="47dp"
         android:layout_marginTop="44dp"
         android:gravity="center"
@@ -108,9 +109,9 @@
 
     <Switch
         android:id="@+id/swLigarCTL"
-        android:layout_width="136dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="127dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="4dp"
         android:buttonTint="#3145B1"
         android:gravity="center"
@@ -122,8 +123,8 @@
 
     <TextView
         android:id="@+id/txtStatusCTL"
-        android:layout_width="196dp"
-        android:layout_height="63dp"
+        android:layout_width="177dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/OFF"
@@ -134,8 +135,8 @@
 
     <TextView
         android:id="@+id/lblMeanConsumeCTL"
-        android:layout_width="197dp"
-        android:layout_height="48dp"
+        android:layout_width="173dp"
+        android:layout_height="38dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="@string/Medconsume"

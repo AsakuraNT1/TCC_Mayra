@@ -64,6 +64,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
     private RequestQueue queue;
     private StringRequest stringONRequest;
     private StringRequest stringOFFRequest;
+    private StringRequest PowerRequest;
     private Switch swLigar;
     private String disURL;
     private ArrayList<Dispositivo> alDispositivos;
@@ -135,22 +136,32 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
         stringONRequest = new StringRequest(Request.Method.GET, disURL + "/status=ON",
                 response -> {
-                    txtData.setText(response);
+                    txtData.setText(R.string.success_connection);
                     txtStatus.setText(R.string.ON);
                     dispositivo.setdStatus(true);
                 }, error -> txtData.setText(R.string.Falha_conexao));
 
         stringOFFRequest = new StringRequest(Request.Method.GET, disURL + "/status=OFF",
                 response -> {
-                    txtData.setText(response);
+                    txtData.setText(R.string.success_connection);
                     txtStatus.setText(R.string.OFF);
                     dispositivo.setdStatus(false);
                 }, error -> txtData.setText(R.string.Falha_conexao));
+
+        PowerRequest = new StringRequest(Request.Method.GET, disURL + "/poweract",
+                response -> {
+                    String cleanString = response.replaceAll("\r", "").replaceAll("\n", "") + " W";
+                    txvActualPower.setText(cleanString);
+                }, error -> txtData.setText(R.string.Falha_conexao));
+
+
+
 
 
         swLigar.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 txtStatus.setText(R.string.ON);
+                queue.add(PowerRequest);
                 queue.add(stringONRequest);
 
             } else {

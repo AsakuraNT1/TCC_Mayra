@@ -2,6 +2,7 @@
     <string name="app_name">Medidor de Consumo</string>
     <string name="action_settings">Opcoes</string>
     <string name="Falha_conexao">Falha de conexão</string>
+    <string name="success_connection">Conexão OK!</string>
     <string name="ON">Ligado</string>
     <string name="OFF">Desligado</string>
     <string name="first_fragment_label">First Fragment</string>
