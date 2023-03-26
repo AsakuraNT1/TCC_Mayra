@@ -154,7 +154,15 @@ public class MonitoraDispositivo extends AppCompatActivity {
                     txvActualPower.setText(cleanString);
                 }, error -> txtData.setText(R.string.Falha_conexao));
 
+        new Thread(() -> {
+            // a potentially time consuming task
 
+            while (true) {
+                queue.add(PowerRequest);
+                SystemClock.sleep(2000);
+            }
+
+        }).start();
 
 
 
