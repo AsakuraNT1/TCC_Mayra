@@ -29,6 +29,7 @@ public class Dispositivo implements Serializable {
     private String dIP;
     private boolean dStatus = false;
     private int speed = 0;
+    private int meanPower = 0;
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
 
@@ -72,6 +73,10 @@ public class Dispositivo implements Serializable {
     int getSpeed() {return  speed;}
 
     public void setSpeed(int speed) {this.speed = speed; }
+
+    int getMeanPower() {return meanPower;}
+
+    public void setMeanPower(int meanPower) {this.meanPower = meanPower;}
 
     PendingIntent getAlarmIntent(){ return alarmIntent; }
 

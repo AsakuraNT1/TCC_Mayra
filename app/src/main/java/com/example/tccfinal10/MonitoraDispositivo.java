@@ -72,6 +72,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
     private int dispositivoPos = 1;
     private int tminutos=0;
     private int thoras=0;
+    private int lastRead = 0;
     private TextView txtTimer;
     private Button btnTimerCancel;
     private boolean dStatus=false;
@@ -150,8 +151,40 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
         PowerRequest = new StringRequest(Request.Method.GET, disURL + "/poweract",
                 response -> {
-                    String cleanString = response.replaceAll("\r", "").replaceAll("\n", "") + " W";
-                    txvActualPower.setText(cleanString);
+                    String cleanString = response.replaceAll("\r", "").replaceAll("\n", "");
+                    String actPowerString =  cleanString + " W";
+                    txvActualPower.setText(actPowerString);
+
+                    try {
+                        int powerInt = Integer.parseInt(cleanString);
+
+                        if (lastRead != powerInt) {
+
+                            lastRead = powerInt;
+
+                            int tmpMeanpower;
+
+                            if (dispositivo.getMeanPower() == 0) {
+                                tmpMeanpower = powerInt;
+                            } else {
+                                tmpMeanpower = (dispositivo.getMeanPower() + powerInt) / 2;
+
+                            }
+
+                            dispositivo.setMeanPower(tmpMeanpower);
+                            String meanPowerString = dispositivo.getMeanPower() + " W";
+
+                            txvMeanPower.setText(meanPowerString);
+
+
+                        }
+
+
+                    } catch (NumberFormatException e) {
+                        // handle the exception
+                    }
+
+
                 }, error -> txtData.setText(R.string.Falha_conexao));
 
         new Thread(() -> {
