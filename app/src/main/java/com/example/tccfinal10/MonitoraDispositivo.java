@@ -93,6 +93,8 @@ public class MonitoraDispositivo extends AppCompatActivity {
         swLigar = findViewById(R.id.swLigarCTL);
 
 
+
+
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
             return;
@@ -154,6 +156,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
                     String cleanString = response.replaceAll("\r", "").replaceAll("\n", "");
                     String actPowerString =  cleanString + " W";
                     txvActualPower.setText(actPowerString);
+                    txtData.setText(R.string.success_connection);
 
                     try {
                         int powerInt = Integer.parseInt(cleanString);
@@ -179,35 +182,37 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
                         }
 
+                        if (powerInt > dispositivo.getMaxPower()){
+                          dispositivo.setMaxPower(powerInt);
+                        }
+
+                        String maxPowerString = dispositivo.getMaxPower() + " W";
+
+                        txvMaxPower.setText(maxPowerString);
 
                     } catch (NumberFormatException e) {
                         // handle the exception
                     }
 
 
-                }, error -> txtData.setText(R.string.Falha_conexao));
+                }, error -> System.out.print("error connection"));
 
-        new Thread(() -> {
-            // a potentially time consuming task
-
-            while (true) {
-                queue.add(PowerRequest);
-                SystemClock.sleep(2000);
-            }
-
-        }).start();
 
 
 
         swLigar.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 txtStatus.setText(R.string.ON);
-                queue.add(PowerRequest);
+                dispositivo.setdStatus(true);
                 queue.add(stringONRequest);
+                dispositivo.setPowerThread(queue, PowerRequest);
 
             } else {
                 txtStatus.setText(R.string.OFF);
                 queue.add(stringOFFRequest);
+                dispositivo.setdStatus(false);
+                dispositivo.stopPowerThread();
+                txvActualPower.setText(R.string.ZeroPower);
             }
             ListaDispositivos.salvar();
         });
@@ -221,11 +226,27 @@ public class MonitoraDispositivo extends AppCompatActivity {
         if(dStatus){
             swLigar.setChecked(true);
             txtStatus.setText(R.string.ON);
+            dispositivo.setPowerThread(queue, PowerRequest);
         } else { swLigar.setChecked(false);
             txtStatus.setText(R.string.OFF);
         }
 
     }
+
+    public void onStop(){
+        super.onStop();
+        dispositivo.stopPowerThread();
+
+
+    }
+
+    public void onPause(){
+        super.onPause();
+        dispositivo.stopPowerThread();
+
+    }
+
+
 
 @Override
 

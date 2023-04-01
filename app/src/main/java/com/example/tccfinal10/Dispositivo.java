@@ -20,6 +20,9 @@ package com.example.tccfinal10;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+
 import java.io.Serializable;
 
 public class Dispositivo implements Serializable {
@@ -30,6 +33,8 @@ public class Dispositivo implements Serializable {
     private boolean dStatus = false;
     private int speed = 0;
     private int meanPower = 0;
+    private int maxPower = 0;
+    private PowerThread powerThread;
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
 
@@ -78,8 +83,26 @@ public class Dispositivo implements Serializable {
 
     public void setMeanPower(int meanPower) {this.meanPower = meanPower;}
 
+    int getMaxPower() {return maxPower;}
+
+    public void setMaxPower(int maxPower) {this.maxPower = maxPower;}
+
     PendingIntent getAlarmIntent(){ return alarmIntent; }
 
     public void setAlarmIntent(PendingIntent alarmIntent) { this.alarmIntent = alarmIntent; }
+
+    public void setPowerThread(RequestQueue queue, StringRequest PowerRequest)
+    {
+
+     this.powerThread = new PowerThread(queue, PowerRequest);
+     this.powerThread.start();
+
+    }
+
+    public void stopPowerThread()
+    {
+        this.powerThread.setMustRun(false);
+    }
+
 
 }
