@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 

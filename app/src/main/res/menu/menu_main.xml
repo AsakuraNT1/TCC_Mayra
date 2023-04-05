@@ -4,12 +4,20 @@
     tools:context="com.example.projectlist.MainActivity">
 
 
+    <item
+        android:id="@+id/miMoney"
+        android:icon="@drawable/ic_money_bar"
+        app:showAsAction="ifRoom"
+        android:title="@string/ordem_alfab_tica" />
+
 
     <item
         android:id="@+id/miAlpha"
         android:icon="@drawable/ic_action_sort_by_alpha"
         app:showAsAction="ifRoom"
-        android:title="Ordem alfabética" />
+        android:title="@string/ordem_alfab_tica" />
+
+
 
 
 </menu>
