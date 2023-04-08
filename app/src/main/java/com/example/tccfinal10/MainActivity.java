@@ -16,9 +16,12 @@ Activity Principal
 package com.example.tccfinal10;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +33,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
 import android.view.View;
 
 import android.view.Menu;
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
     DispositivoAdapter adapter;
     boolean alphaClicked=false;
 
-
+    public static long kwhPrice = 0;
 
 
     private void createNotificationChannel() {
@@ -152,6 +156,14 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
 
                 adapter.notifyDataSetChanged();
                 return true;
+
+            case R.id.miMoney:
+
+            GetPriceDialogFragment getpriceDialog = new GetPriceDialogFragment();
+
+            getpriceDialog.show(getSupportFragmentManager(), "getprice");
+
+
 
             default:
                 return super.onOptionsItemSelected(item);

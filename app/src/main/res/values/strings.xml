@@ -31,6 +31,9 @@
     <string name="meanCost">Gasto Médio:</string>
     <string name="dataDefault">Resposta</string>
     <string name="plusButtonDescription">Botão para adicionar dispositivos</string>
+    <string name="dialogPriceHint">Preço do KWh em R$</string>
+    <string name="dialogPriceOk">Atualizar</string>
+    <string name="dialogPriceCancel">Cancelar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
