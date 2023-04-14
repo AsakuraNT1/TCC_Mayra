@@ -40,5 +40,7 @@
     <string name="ordem_alfab_tica">Ordem alfabética</string>
     <string name="timer">Timer</string>
     <string name="remover">Remover</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 
 </resources>

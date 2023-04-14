@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
     DispositivoAdapter adapter;
     boolean alphaClicked=false;
 
-    public static long kwhPrice = 0;
+    public static float kwhPrice = 0;
 
 
     private void createNotificationChannel() {

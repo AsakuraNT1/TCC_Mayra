@@ -60,6 +60,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
     private TextView txvActualPower;
     private TextView txvMeanPower;
     private TextView txvMaxPower;
+    private TextView txvRealPerMinute;
     private TextView txtStatus;
     private RequestQueue queue;
     private StringRequest stringONRequest;
@@ -88,6 +89,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
         txvActualPower = findViewById(R.id.tvValueActualConsumeCTL);
         txvMeanPower = findViewById(R.id.tvValueMeanConsumeCTL);
         txvMaxPower = findViewById(R.id.tvValueMaxPowerCTL);
+        txvRealPerMinute = findViewById(R.id.tvValueCostCTL);
         TextView txtNome = findViewById(R.id.tvTitleCTL);
         TextView txtData = findViewById(R.id.tvResponse);
         swLigar = findViewById(R.id.swLigarCTL);
@@ -189,6 +191,12 @@ public class MonitoraDispositivo extends AppCompatActivity {
                         String maxPowerString = dispositivo.getMaxPower() + " W";
 
                         txvMaxPower.setText(maxPowerString);
+
+                        float tempPrice = MainActivity.kwhPrice * powerInt;
+                        String tempPriceString = tempPrice + "  R$/min";
+
+                        txvRealPerMinute.setText(tempPriceString);
+
 
                     } catch (NumberFormatException e) {
                         // handle the exception
