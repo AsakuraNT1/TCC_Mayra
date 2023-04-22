@@ -164,7 +164,7 @@ public class MonitoraDispositivo extends AppCompatActivity {
                     try {
                         int powerInt = Integer.parseInt(cleanString);
 
-                        if (lastRead != powerInt) {
+                        if (Math.abs(lastRead - powerInt) > 10) {
 
                             lastRead = powerInt;
 
