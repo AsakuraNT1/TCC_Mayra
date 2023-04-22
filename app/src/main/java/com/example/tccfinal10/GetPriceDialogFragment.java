@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.EditText;
@@ -53,16 +54,26 @@ public class GetPriceDialogFragment extends DialogFragment {
                 new View.OnClickListener() {
                     @Override public void onClick(View v)
                     {
-                        Log.d(TAG, "onClick: capturing input");
+
+                        Context context = getActivity();
+                        assert context != null;
+                        SharedPreferences sharedPref = context.getSharedPreferences(
+                                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+                        SharedPreferences.Editor editor = sharedPref.edit();
 
                         try {
 
-                            MainActivity.kwhPrice = Float.parseFloat((etPrice.getText().toString()));
+                            float tmpkwhPrice = Float.parseFloat((etPrice.getText().toString()));
+
+                            editor.putFloat(getString(R.string.kwhPrice_file_key), tmpkwhPrice);
+                            editor.apply();
+
+
 
                             getDialog().dismiss();
 
                         } catch (NumberFormatException e) {
-                            MainActivity.kwhPrice = 0;
                             e.printStackTrace();
                             getDialog().dismiss();
                         }

@@ -22,6 +22,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -192,8 +193,14 @@ public class MonitoraDispositivo extends AppCompatActivity {
 
                         txvMaxPower.setText(maxPowerString);
 
-                        float tempPrice = MainActivity.kwhPrice * powerInt;
-                        String tempPriceString = tempPrice + "  R$/min";
+                        Context context = this;
+
+                        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+                        float singlePrice = sharedPref.getFloat(getString(R.string.kwhPrice_file_key), 0);
+
+                        float tempPrice = singlePrice * powerInt/1000;
+                        String tempPriceString = tempPrice + "  R$/Hora";
 
                         txvRealPerMinute.setText(tempPriceString);
 

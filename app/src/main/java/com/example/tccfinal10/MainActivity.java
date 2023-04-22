@@ -21,8 +21,10 @@ import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
     DispositivoAdapter adapter;
     boolean alphaClicked=false;
 
-    public static float kwhPrice = 0;
 
 
     private void createNotificationChannel() {
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-       createNotificationChannel();
+        createNotificationChannel();
 
 
         super.onCreate(savedInstanceState);
@@ -83,8 +84,6 @@ public class MainActivity extends AppCompatActivity implements DispositivoAdapte
         setSupportActionBar(toolbar);
 
         alDispositivos = ListaDispositivos.get(getApplicationContext()).getAlDispositivos();
-
-
 
 
         FloatingActionButton fab = findViewById(R.id.fab);

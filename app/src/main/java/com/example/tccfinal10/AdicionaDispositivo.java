@@ -88,9 +88,9 @@ public class AdicionaDispositivo extends AppCompatActivity {
         dispositivo.setdNome(etNome.getText().toString());
         dispositivo.setdIP(etIP.getText().toString());
 
-        if (iDispoId == 1) {
-            alDispositivos.add(dispositivo);         }
+        alDispositivos.add(dispositivo);
         ListaDispositivos.salvar();
+        Toast.makeText(getApplicationContext(), "Salvo", Toast.LENGTH_SHORT).show();
         this.finish();
 
 

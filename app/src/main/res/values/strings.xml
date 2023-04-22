@@ -22,7 +22,7 @@
     <string name="ZeroPower">0 W</string>
     <string name="ZeroVoltage">0 V</string>
     <string name="ZeroCurrent">0 A</string>
-    <string name="ZeroMoney">0 R$/min</string>
+    <string name="ZeroMoney">0 R$/Hora</string>
     <string name="allInfo">Informações Gerais</string>
     <string name="voltage">Tensão:</string>
     <string name="current">Corrente:</string>
@@ -34,6 +34,8 @@
     <string name="dialogPriceHint">Preço do KWh em R$</string>
     <string name="dialogPriceOk">Atualizar</string>
     <string name="dialogPriceCancel">Cancelar</string>
+    <string name="preference_file_key">com.example.medidorconsumo.PREFERENCE_FILE_KEY</string>
+    <string name="kwhPrice_file_key">kwhprice.PREFERENCE_FILE_KEY</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
